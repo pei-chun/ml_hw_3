@@ -22,7 +22,31 @@ def load():
     
     return train_x, train_t, test_x, test_t
 
+def epsilon():
+    """
+        noisy signal
+    """
+    epsilon = np.random.normal(0,1)
+    return epsilon
+    
+def kernel():
+    """
+        hyperparameters kernel
+    """
+    # squared exponential kernel
+    kernel_sq = np.asarray([1,4,0,0])
+    # linear kernel
+    kernel_li = np.asarray([0,0,0,1])
+    # exponential-quadratic kernel1
+    kernel_ex1 = np.asarray([1,4,0,5])
+    # exponential-quadratic kernel2
+    kernel_ex2 = np.asarray([1,64,10,0])
+    return kernel_sq, kernel_li, kernel_ex1, kernel_ex2
+
 if __name__ == '__main__':
     
     # loading data
     train_x, train_t, test_x, test_t = load()
+    
+    # initial setting
+    kernel_sq, kernel_li, kernel_ex1, kernel_ex2 = kernel()
