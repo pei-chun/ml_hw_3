@@ -43,6 +43,14 @@ def kernel():
     kernel_ex2 = np.asarray([1,64,10,0])
     return kernel_sq, kernel_li, kernel_ex1, kernel_ex2
 
+def regression(x, t):
+    """
+        regression function
+    """
+    e = epsilon()
+    y(x) = t - e
+    return y
+
 if __name__ == '__main__':
     
     # loading data
