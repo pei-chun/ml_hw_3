@@ -21,14 +21,13 @@ def load():
     test_x, test_t = np.asarray(data[60:100]), np.asarray(target[60:100])
     
     return train_x, train_t, test_x, test_t
-
-def epsilon():
+   
+def kernel_function(xn, xm ,kernel):
     """
-        noisy signal
+        kernel function
+        k(xn, xm) = theta0 * exp{-theta1/2 * (|xn - xm|)**2} + theta2 + theta3 * xn.T * xm
     """
-    epsilon = np.random.normal(0,1)
-    return epsilon
-    
+    k = kernel[0]
 def kernel():
     """
         hyperparameters kernel
@@ -42,14 +41,6 @@ def kernel():
     # exponential-quadratic kernel2
     kernel_ex2 = np.asarray([1,64,10,0])
     return kernel_sq, kernel_li, kernel_ex1, kernel_ex2
-
-def regression(x, t):
-    """
-        regression function
-    """
-    e = epsilon()
-    y(x) = t - e
-    return y
 
 if __name__ == '__main__':
     
